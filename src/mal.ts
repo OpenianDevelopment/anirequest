@@ -1,3 +1,1 @@
-export async function placeholder(params:string) {
-    
-}
+export async function placeholder(params: string) {}
