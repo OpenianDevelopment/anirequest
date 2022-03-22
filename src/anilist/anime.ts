@@ -1,20 +1,23 @@
-export async function animeByname(
-  name: string,
-  perPage?: number,
-  page?: number
-) {
-  if (!perPage && page)
-    return console.error("page cannot be defined if perpage is undefined");
-  if (perPage) {
-    if (!page) {
-      page = 1;
+import { anilistRequest } from "./global";
+export async function getAnimeByName(
+    name:string,
+    perPage?:number,
+    page?:number
+):Promise<object|object[]|null>{
+    if (!perPage && page){
+        console.error("page cannot be defined if perpage is undefined");
+        return null
     }
-    var variablesPage = {
-      search: name,
-      page: page,
-      perPage: perPage,
-    };
-    const queryPage = `query ($id: Int, $page: Int, $perPage: Int, $search: String) {
+    if (perPage) {
+        if (!page) {
+          page = 1;
+        }
+        var variablesPage = {
+          search: name,
+          page: page,
+          perPage: perPage,
+        };
+        const queryPage = `query ($id: Int, $page: Int, $perPage: Int, $search: String) {
             Page(page: $page, perPage: $perPage) {
               pageInfo {
                 total
@@ -86,48 +89,6 @@ export async function animeByname(
               source
             }
           }`;
-    return await anilistRequest(query, variables);
-  }
-}
-export async function animeByID(id: number, perPage?: number, page?: number) {
-  if (!perPage && page)
-    return console.error("page cannot be defined if perpage is undefined");
-  if (perPage) {
-    if (!page) {
-      page = 1;
+        return await anilistRequest(query, variables);
     }
-    var variablesPage = {
-      id: id,
-      page: page,
-      perPage: perPage,
-    };
-  } else {
-    var variables = {
-      id: id,
-    };
-  }
-}
-
-async function anilistRequest(query: string, variables: object) {
-  const url = "https://graphql.anilist.co",
-    options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        query: query,
-        variables: variables,
-      }),
-    };
-  const requestData = await fetch(url, options)
-    .then(handleResponse)
-    .catch(console.error);
-  if (requestData == undefined) return null;
-  return requestData;
-}
-async function handleResponse(response: Response) {
-  const json = await response.json();
-  return response.ok ? json : Promise.reject(json);
 }
