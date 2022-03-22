@@ -1,3 +1,4 @@
+import fetch from "cross-fetch";
 export async function anilistRequest(query: string, variables: object) {
     const url = "https://graphql.anilist.co",
       options = {
