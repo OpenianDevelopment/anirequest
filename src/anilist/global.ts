@@ -16,7 +16,7 @@ export async function anilistRequest(query: string, variables: object) {
       .then(handleResponse)
       .catch(console.error);
     if (requestData == undefined) return null;
-    return requestData;
+    return requestData.data as any;
 }
 async function handleResponse(response: Response) {
     const json = await response.json();
