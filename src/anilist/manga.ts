@@ -31,6 +31,7 @@ export async function getByName(
                 title {
                   romaji
                   english
+                  native
                 }
                 description
                 coverImage{
@@ -62,6 +63,7 @@ export async function getByName(
           title {
             romaji
             english
+            native
           }
           description
           coverImage {
@@ -97,6 +99,7 @@ export async function getByID(
           title {
             romaji
             english
+            native
           }
           description
           coverImage {
@@ -117,4 +120,26 @@ export async function getByID(
         }
       }`;
     return await anilistRequest(query, variables);
+}
+
+interface manag{
+    Media:  {
+        id:number,
+        title:{
+            romaji:string|null,
+            english:string|null,
+            natvie:string|null
+        }
+        description:string|null,
+        coverImage:{
+            extraLarge:string
+        },
+        startDate:{year:number|null,month:number|null,day:number|null},
+        format:string,
+        status:string,
+        chapters:number|null,
+        isAdult: boolean,
+        averageScore:number|null,
+        source:string
+    }
 }

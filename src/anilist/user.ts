@@ -30,7 +30,14 @@ export async function getByName(
               users(id: $id, search: $search, sort: $sort) {
                 id
                 name
+                createdAt
+                previousNames {
+                    name
+                    createdAt
+                    updatedAt
+                }
                 updatedAt
+                bannerImage
                 avatar {
                   large
                   medium
@@ -63,7 +70,14 @@ export async function getByName(
         User(id: $id, search: $search, sort: $sort) {
           id
           name
+          createdAt
+          previousNames {
+            name
+            createdAt
+            updatedAt
+          }
           updatedAt
+          bannerImage
           avatar {
             large
             medium
@@ -100,7 +114,14 @@ export async function getByID(
         User(id: $id, sort: $sort) {
           id
           name
+          createdAt
+          previousNames {
+            name
+            createdAt
+            updatedAt
+          }
           updatedAt
+          bannerImage
           avatar {
             large
             medium
@@ -121,7 +142,8 @@ export async function getByID(
           unreadNotificationCount
           siteUrl
         }
-      }`;
+      }
+      `;
     return await anilistRequest(query, variables) as Promise<user|null>;
 }
 
@@ -141,17 +163,20 @@ interface user{
     User:{
         id:number,
         name:string|null,
+        createdAt:number,
+        previousNames:Array<{name:string,createdAt:number,updatedAt:number}>,
         updatedAt:number,
-        avatar?:{
-            large:string,
-            medium:string
+        bannerImage:string|null
+        avatar:{
+            large:string|null,
+            medium:string|null
         }
         about:string|null,
         statistics:{
             anime:{count: number, episodesWatched: number, minutesWatched: number},
             manga:{count: number, volumesRead: number, chaptersRead: number}
         },
-        unreadNotificationCount: null,
-        siteUrl: string|null
+        unreadNotificationCount: number|null,
+        siteUrl: string
     }
 }
