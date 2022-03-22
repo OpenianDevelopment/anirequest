@@ -1,18 +1,17 @@
 {
   "name": "anidata",
-  "version": "0.0.4",
+  "version": "0.0.1",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
-    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
-    "lint": "tslint -p tsconfig.json"
-  },
   "keywords": [],
   "author": "july12123",
   "license": "ISC",
+  "exports":{
+    "require":"./dist/index.js",
+    "import":"./dist/index.mjs"
+  },
+  "files": ["dist"],
   "devDependencies": {
     "prettier": "^2.6.0",
     "tslint": "^6.1.3",
