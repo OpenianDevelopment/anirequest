@@ -21,7 +21,7 @@ name: {
       userPreferred: 'Rias Gremory',
       native: 'リアス・グレモリー',
       alternative: [Array],
-      alternativeSpoiler: []
+      alternativeSpoiler: ['Buchou (President)','Ria','Heiress of the House of Gremory','Crimson-Haired Ruin Princess','Princess of Destruction','Princess of Gremory','Devil Princess','Switch Princess',"Red Dragon Emperor's Legal Wife"]
     },
     image: {
       large: 'https://s4.anilist.co/file/anilistcdn/character/large/b50389-32Fkl98wo3ou.png',
