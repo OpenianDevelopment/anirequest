@@ -1,4 +1,9 @@
 import { anilistRequest } from './global';
+/**
+ * return chracter by name
+ * @param name chracter name
+ * @returns chracter or null
+ **/
 export async function getByName(name: string) {
   const variables = {
     search: name,
@@ -55,11 +60,15 @@ export async function getByName(name: string) {
       }`;
   return (await anilistRequest(query, variables)) as Promise<object | null>;
 }
+/**
+ * return array of characters by name
+ * @param name name of character
+ * @param perPage how many per page
+ * @param page select page to show (not required)
+ * @returns array of character or null
+ */
 
 export async function getArraybyName(name: string, perPage: number, page?: number) {
-  if (!perPage && page) {
-    return null;
-  }
   if (perPage) {
     if (!page) {
       page = 1;
@@ -131,8 +140,13 @@ export async function getArraybyName(name: string, perPage: number, page?: numbe
     return (await anilistRequest(queryPage, variablesPage)) as Promise<object | null>;
   }
 }
+/**
+ * return character by id
+ * @param id id of chracter
+ * @returns character or null
+ */
 
-export async function getByID(id: number, perPage?: number, page?: number) {
+export async function getByID(id: number) {
   const variables = {
     id,
     sort: 'SEARCH_MATCH',

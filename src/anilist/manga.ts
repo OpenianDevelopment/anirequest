@@ -1,4 +1,9 @@
 import { anilistRequest } from './global';
+/**
+ * return manga by name
+ * @param name 
+ * @returns manga or null
+ */
 export async function getByName(name: string) {
   const variables = {
     search: name,
@@ -49,11 +54,14 @@ export async function getByName(name: string) {
   if (results == null) return null;
   return results.Media as Promise<Manga>;
 }
-export async function getArrayByName(name: string, perPage?: number, page?: number) {
-  if (!perPage && page) {
-    return null;
-  }
-  if (perPage) {
+/**
+ * return manga by name
+ * @param name name of manga
+ * @param perPage how many per page
+ * @param page select page to show (not required)
+ * @returns manga or null
+ */
+export async function getArrayByName(name: string, perPage: number, page?: number) {
     if (!page) {
       page = 1;
     }
@@ -114,9 +122,12 @@ export async function getArrayByName(name: string, perPage?: number, page?: numb
             }
           }`;
     return (await anilistRequest(queryPage, variablesPage)) as Promise<MPage | null>;
-  }
 }
-
+/**
+ * return manga by id
+ * @param id id of manga
+ * @returns manga or null
+ */
 export async function getByID(id: number) {
   const variables = {
     id,

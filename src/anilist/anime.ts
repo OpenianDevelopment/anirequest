@@ -1,4 +1,9 @@
 import { anilistRequest } from './global';
+/**
+ * return anime by name
+ * @param name name of anime
+ * @returns anime or null
+ */
 export async function getByName(name: string) {
   const variables = {
     search: name,
@@ -59,6 +64,13 @@ export async function getByName(name: string) {
           }`;
   return (await anilistRequest(query, variables)) as Promise<object | null>;
 }
+/**
+ * return array of anime
+ * @param name name of anime
+ * @param perPage how many per page
+ * @param page select page to show (not required)
+ * @returns anime array or null
+ */
 export async function getArrayByName(name: string, perPage: number, page?: number) {
   if (perPage) {
     if (!page) {
@@ -135,6 +147,11 @@ source
     return (await anilistRequest(queryPage, variablesPage)) as Promise<object | null>;
   }
 }
+/**
+ * return anime by id
+ * @param id id of anime
+ * @returns null or anime
+ */
 
 export async function getByID(id: number) {
   const variables = {

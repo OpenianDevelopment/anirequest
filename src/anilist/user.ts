@@ -1,4 +1,9 @@
 import { anilistRequest } from './global';
+/**
+ * Returns a single User by name
+ * @param name name of User
+*  @returns user or null
+**/ 
 export async function getByName(name: string ) {
   const variables = {
     search: name,
@@ -41,12 +46,14 @@ export async function getByName(name: string ) {
   if (results == null) return null;
   return results.User as Promise<User>;
 }
-
-export async function getArrayByName(name: string, perPage?: number, page?: number) {
-  if (!perPage && page) {
-    return null;
-  }
-  if (perPage) {
+/**
+ * Returns multiple User by name
+ * @param name name of Users
+ * @param perPage how many per page
+ * @param page select page to show (not required)
+ * @returns user or null
+**/ 
+export async function getArrayByName(name: string, perPage: number, page?: number) {
     if (!page) {
       page = 1;
     }
@@ -99,9 +106,12 @@ export async function getArrayByName(name: string, perPage?: number, page?: numb
             }
           }`;
     return (await anilistRequest(queryPage, variablesPage)) as Promise<UPage | null>;
-  }
 }
-
+/**
+ * Returns a single User by id 
+ * @param id id of User
+ * @returns user or null
+**/ 
 export async function getByID(id: number) {
   const variables = {
     id,
