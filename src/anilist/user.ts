@@ -2,9 +2,9 @@ import { anilistRequest } from './global';
 /**
  * Returns a single User by name
  * @param name name of User
-*  @returns user or null
-**/ 
-export async function getByName(name: string ) {
+ * @returns user or null
+ **/
+export async function getByName(name: string) {
   const variables = {
     search: name,
     sort: 'SEARCH_MATCH',
@@ -52,18 +52,18 @@ export async function getByName(name: string ) {
  * @param perPage how many per page
  * @param page select page to show (not required)
  * @returns user or null
-**/ 
+ **/
 export async function getArrayByName(name: string, perPage: number, page?: number) {
-    if (!page) {
-      page = 1;
-    }
-    const variablesPage = {
-      search: name,
-      sort: 'SEARCH_MATCH',
-      page,
-      perPage,
-    };
-    const queryPage = `query ($id: Int, $page: Int, $perPage: Int, $search: String, $sort: [UserSort]) {
+  if (!page) {
+    page = 1;
+  }
+  const variablesPage = {
+    search: name,
+    sort: 'SEARCH_MATCH',
+    page,
+    perPage,
+  };
+  const queryPage = `query ($id: Int, $page: Int, $perPage: Int, $search: String, $sort: [UserSort]) {
             Page(page: $page, perPage: $perPage) {
               pageInfo {
                 total
@@ -105,13 +105,15 @@ export async function getArrayByName(name: string, perPage: number, page?: numbe
               }
             }
           }`;
-    return (await anilistRequest(queryPage, variablesPage)) as Promise<UPage | null>;
+  const results = await anilistRequest(queryPage, variablesPage);
+  if (results == null) return null;
+  return results.Page.users as Promise<User[]>;
 }
 /**
- * Returns a single User by id 
+ * Returns a single User by id
  * @param id id of User
  * @returns user or null
-**/ 
+ **/
 export async function getByID(id: number) {
   const variables = {
     id,
@@ -154,19 +156,6 @@ export async function getByID(id: number) {
   const results = await anilistRequest(query, variables);
   if (results == null) return null;
   return results.User as Promise<User>;
-}
-
-interface UPage {
-  Page: {
-    pageInfo: {
-      total: number;
-      currentPage: number;
-      lastPage: number;
-      hasNextPage: boolean;
-      perPage: number;
-    };
-    users: User[];
-  };
 }
 
 interface User {

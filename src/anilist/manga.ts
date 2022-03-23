@@ -1,7 +1,7 @@
 import { anilistRequest } from './global';
 /**
  * return manga by name
- * @param name 
+ * @param name
  * @returns manga or null
  */
 export async function getByName(name: string) {
@@ -62,15 +62,15 @@ export async function getByName(name: string) {
  * @returns manga or null
  */
 export async function getArrayByName(name: string, perPage: number, page?: number) {
-    if (!page) {
-      page = 1;
-    }
-    const variablesPage = {
-      search: name,
-      page,
-      perPage,
-    };
-    const queryPage = `query ($id: Int, $page: Int, $perPage: Int, $search: String) {
+  if (!page) {
+    page = 1;
+  }
+  const variablesPage = {
+    search: name,
+    page,
+    perPage,
+  };
+  const queryPage = `query ($id: Int, $page: Int, $perPage: Int, $search: String) {
             Page (page: $page, perPage: $perPage) {
               pageInfo {
                 total
@@ -121,7 +121,9 @@ export async function getArrayByName(name: string, perPage: number, page?: numbe
               }
             }
           }`;
-    return (await anilistRequest(queryPage, variablesPage)) as Promise<MPage | null>;
+  const results = await anilistRequest(queryPage, variablesPage);
+  if (results == null) return null;
+  return results.Page.media as Promise<Manga[]>;
 }
 /**
  * return manga by id
@@ -177,18 +179,6 @@ export async function getByID(id: number) {
   const results = await anilistRequest(query, variables);
   if (results == null) return null;
   return results.Media as Promise<Manga>;
-}
-interface MPage {
-  Page: {
-    pageInfo: {
-      total: number;
-      currentPage: number;
-      lastPage: number;
-      hasNextPage: boolean;
-      perPage: number;
-    };
-    media: Manga[];
-  };
 }
 interface Manga {
   id: number;
