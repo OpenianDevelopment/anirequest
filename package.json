@@ -28,12 +28,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/july12123/anidata.git"
+    "url": "git+https://github.com/OpenianDevelopment/anidata.git"
   },
   "bugs": {
-    "url": "https://github.com/july12123/anidata/issues"
+    "url": "https://github.com/OpenianDevelopment/anidata/issues"
   },
-  "homepage": "https://github.com/july12123/anidata#readme",
+  "homepage": "https://github.com/OpenianDevelopment/anidata#readme",
   "dependencies": {
     "cross-fetch": "^3.1.5"
   }
