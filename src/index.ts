@@ -1,7 +1,7 @@
-import anilist from "./anilist/anilist";
+import anilist from './anilist/anilist';
 
 const anidata = {
-    anilist
-}
+  anilist,
+};
 
-export default anidata
+export default anidata;
