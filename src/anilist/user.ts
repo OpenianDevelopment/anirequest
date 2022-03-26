@@ -1,10 +1,10 @@
-import { anilistRequest } from './global';
+import { anilistRequest,User } from './global';
 /**
  * Returns a single User by name
  * @param name name of User
  * @returns user or null
  **/
-export async function getByName(name: string) {
+export async function getByName(name: string):Promise<User|null> {
   const variables = {
     search: name,
     sort: 'SEARCH_MATCH',
@@ -53,7 +53,7 @@ export async function getByName(name: string) {
  * @param page select page to show (not required)
  * @returns user or null
  **/
-export async function getArrayByName(name: string, perPage: number, page?: number) {
+export async function getArrayByName(name: string, perPage: number, page?: number):Promise<User[]|null> {
   if (!page) {
     page = 1;
   }
@@ -107,6 +107,7 @@ export async function getArrayByName(name: string, perPage: number, page?: numbe
           }`;
   const results = await anilistRequest(queryPage, variablesPage);
   if (results == null) return null;
+  if (results.Page.users.length == 0) return null;
   return results.Page.users as Promise<User[]>;
 }
 /**
@@ -114,7 +115,7 @@ export async function getArrayByName(name: string, perPage: number, page?: numbe
  * @param id id of User
  * @returns user or null
  **/
-export async function getByID(id: number) {
+export async function getByID(id: number):Promise<User|null> {
   const variables = {
     id,
     sort: 'SEARCH_MATCH',
@@ -158,26 +159,4 @@ export async function getByID(id: number) {
   return results.User as Promise<User>;
 }
 
-interface User {
-  id: number;
-  name: string | null;
-  createdAt: number;
-  previousNames: {
-    name: string;
-    createdAt: number;
-    updatedAt: number;
-  }[];
-  updatedAt: number;
-  bannerImage: string | null;
-  avatar: {
-    large: string | null;
-    medium: string | null;
-  };
-  about: string | null;
-  statistics: {
-    anime: { count: number; episodesWatched: number; minutesWatched: number };
-    manga: { count: number; volumesRead: number; chaptersRead: number };
-  };
-  unreadNotificationCount: number | null;
-  siteUrl: string;
-}
+

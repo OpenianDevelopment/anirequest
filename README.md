@@ -11,7 +11,7 @@ async function run(){
     console.log(await anidata.anilist.character.getByName("rias"))
 }
 ```
-### Results
+## Results
 ```
 name: {
       full: 'Rias Gremory',
@@ -42,3 +42,6 @@ name: {
     manga: { nodes: [Array] }
 ```
  
+## Additional Info
+
+any issues report [in our github](https://github.com/OpenianDevelopment/anirequest/issues)

@@ -1,5 +1,5 @@
 {
-  "name": "anidata-test",
+  "name": "anirequest",
   "version": "0.0.1",
   "description": "",
   "scripts": {
@@ -28,12 +28,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OpenianDevelopment/anidata.git"
+    "url": "git+https://github.com/OpenianDevelopment/anirequest.git"
   },
   "bugs": {
-    "url": "https://github.com/OpenianDevelopment/anidata/issues"
+    "url": "https://github.com/OpenianDevelopment/anirequest/issues"
   },
-  "homepage": "https://github.com/OpenianDevelopment/anidata#readme",
+  "homepage": "https://github.com/OpenianDevelopment/anirequest#readme",
   "dependencies": {
     "cross-fetch": "^3.1.5"
   }

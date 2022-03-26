@@ -1,10 +1,10 @@
-import { anilistRequest } from './global';
+import { anilistRequest,Manga } from './global';
 /**
  * return manga by name
  * @param name
  * @returns manga or null
  */
-export async function getByName(name: string) {
+export async function getByName(name: string):Promise<Manga|null> {
   const variables = {
     search: name,
   };
@@ -61,7 +61,7 @@ export async function getByName(name: string) {
  * @param page select page to show (not required)
  * @returns manga or null
  */
-export async function getArrayByName(name: string, perPage: number, page?: number) {
+export async function getArrayByName(name: string, perPage: number, page?: number):Promise<Manga[]|null> {
   if (!page) {
     page = 1;
   }
@@ -123,6 +123,7 @@ export async function getArrayByName(name: string, perPage: number, page?: numbe
           }`;
   const results = await anilistRequest(queryPage, variablesPage);
   if (results == null) return null;
+  if (results.Page.media.length == 0) return null;
   return results.Page.media as Promise<Manga[]>;
 }
 /**
@@ -130,7 +131,7 @@ export async function getArrayByName(name: string, perPage: number, page?: numbe
  * @param id id of manga
  * @returns manga or null
  */
-export async function getByID(id: number) {
+export async function getByID(id: number):Promise<Manga|null> {
   const variables = {
     id,
   };
@@ -179,43 +180,4 @@ export async function getByID(id: number) {
   const results = await anilistRequest(query, variables);
   if (results == null) return null;
   return results.Media as Promise<Manga>;
-}
-interface Manga {
-  id: number;
-  idMal: number | null;
-  type: string;
-  title: {
-    romaji: string | null;
-    english: string | null;
-    natvie: string | null;
-  };
-  description: string | null;
-  coverImage: {
-    extraLarge: string;
-    large: string;
-    medium: string;
-    color: string;
-  };
-  startDate: {
-    year: number | null;
-    month: number | null;
-    day: number | null;
-  };
-  format: string;
-  status: string;
-  chapters: number | null;
-  volumes: number | null;
-  isAdult: boolean;
-  averageScore: number | null;
-  siteUrl: string;
-  trailer: string | null;
-  genres: string[];
-  trending: number | null;
-  relations: {
-    edges: { id: number }[];
-  };
-  favourites: number | null;
-  synonys: string[];
-  countryOfOrigin: string | null;
-  source: string;
 }

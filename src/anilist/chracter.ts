@@ -1,10 +1,10 @@
-import { anilistRequest } from './global';
+import { anilistRequest,Character } from './global';
 /**
  * return chracter by name
  * @param name chracter name
  * @returns chracter or null
  **/
-export async function getByName(name: string) {
+export async function getByName(name: string):Promise<Character|null> {
   const variables = {
     search: name,
     sort: 'SEARCH_MATCH',
@@ -58,7 +58,9 @@ export async function getByName(name: string) {
             }
         }
       }`;
-  return (await anilistRequest(query, variables)) as Promise<object | null>;
+  const data = await anilistRequest(query, variables);
+  if (data == null) return null;
+  return data.Character as Promise<Character>;
 }
 /**
  * return array of characters by name
@@ -68,8 +70,7 @@ export async function getByName(name: string) {
  * @returns array of character or null
  */
 
-export async function getArraybyName(name: string, perPage: number, page?: number) {
-  if (perPage) {
+export async function getArraybyName(name: string, perPage: number, page?: number):Promise<Character[]|null> {
     if (!page) {
       page = 1;
     }
@@ -137,8 +138,10 @@ export async function getArraybyName(name: string, perPage: number, page?: numbe
               }
             }
           }`;
-    return (await anilistRequest(queryPage, variablesPage)) as Promise<object | null>;
-  }
+    const results = await anilistRequest(queryPage, variablesPage);
+    if (results == null) return null;
+    if (results.Page.characters.length == 0) return null;
+    return results.Page.characters as Promise<Character[]>;
 }
 /**
  * return character by id
@@ -146,7 +149,7 @@ export async function getArraybyName(name: string, perPage: number, page?: numbe
  * @returns character or null
  */
 
-export async function getByID(id: number) {
+export async function getByID(id: number):Promise<Character|null> {
   const variables = {
     id,
     sort: 'SEARCH_MATCH',
@@ -186,6 +189,9 @@ export async function getByID(id: number) {
                 userPreferred
                 native
               }
+              status
+              startDate
+              endDate
             }
           }
           manga: media(page: 1, perPage: 5, type: MANGA) {
@@ -196,9 +202,14 @@ export async function getByID(id: number) {
                 userPreferred
                 native
               }
+              status
+              startDate
+              endDate
             }
           }
         }
       }`;
-  return (await anilistRequest(query, variables)) as Promise<object | null>;
+  const data = await anilistRequest(query, variables);
+  if (data == null) return null;
+  return data.Character as Promise<Character>;
 }
