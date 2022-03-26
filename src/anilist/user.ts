@@ -1,10 +1,10 @@
-import { anilistRequest,User } from './global';
+import { anilistRequest, User } from './global';
 /**
  * Returns a single User by name
  * @param name name of User
  * @returns user or null
  **/
-export async function getByName(name: string):Promise<User|null> {
+export async function getByName(name: string): Promise<User | null> {
   const variables = {
     search: name,
     sort: 'SEARCH_MATCH',
@@ -53,7 +53,7 @@ export async function getByName(name: string):Promise<User|null> {
  * @param page select page to show (not required)
  * @returns user or null
  **/
-export async function getArrayByName(name: string, perPage: number, page?: number):Promise<User[]|null> {
+export async function getArrayByName(name: string, perPage: number, page?: number): Promise<User[] | null> {
   if (!page) {
     page = 1;
   }
@@ -115,7 +115,7 @@ export async function getArrayByName(name: string, perPage: number, page?: numbe
  * @param id id of User
  * @returns user or null
  **/
-export async function getByID(id: number):Promise<User|null> {
+export async function getByID(id: number): Promise<User | null> {
   const variables = {
     id,
     sort: 'SEARCH_MATCH',
@@ -158,5 +158,3 @@ export async function getByID(id: number):Promise<User|null> {
   if (results == null) return null;
   return results.User as Promise<User>;
 }
-
-

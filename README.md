@@ -1,9 +1,9 @@
 # AniData
 ## Getting started
-` npm install anidata`
+` npm install anirequest`
 
 ```ts
-import anidata from 'anidata'
+import anidata from 'anirequest'
 
 run()
 

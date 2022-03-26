@@ -1,11 +1,11 @@
-import { anilistRequest,Anime } from './global';
+import { anilistRequest, Anime } from './global';
 
 /**
  * return anime by name
  * @param name name of anime
  * @returns anime or null
  */
-export async function getByName(name: string):Promise<Anime|null> {
+export async function getByName(name: string): Promise<Anime | null> {
   const variables = {
     search: name,
   };
@@ -74,7 +74,7 @@ export async function getByName(name: string):Promise<Anime|null> {
  * @param page select page to show (not required)
  * @returns anime array or null
  */
-export async function getArrayByName(name: string, perPage: number, page?: number):Promise<Anime[]|null> {
+export async function getArrayByName(name: string, perPage: number, page?: number): Promise<Anime[] | null> {
   if (!page) {
     page = 1;
   }

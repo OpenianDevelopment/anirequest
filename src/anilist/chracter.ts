@@ -1,10 +1,10 @@
-import { anilistRequest,Character } from './global';
+import { anilistRequest, Character } from './global';
 /**
  * return chracter by name
  * @param name chracter name
  * @returns chracter or null
  **/
-export async function getByName(name: string):Promise<Character|null> {
+export async function getByName(name: string): Promise<Character | null> {
   const variables = {
     search: name,
     sort: 'SEARCH_MATCH',
@@ -70,17 +70,17 @@ export async function getByName(name: string):Promise<Character|null> {
  * @returns array of character or null
  */
 
-export async function getArraybyName(name: string, perPage: number, page?: number):Promise<Character[]|null> {
-    if (!page) {
-      page = 1;
-    }
-    const variablesPage = {
-      search: name,
-      sort: 'SEARCH_MATCH',
-      page,
-      perPage,
-    };
-    const queryPage = `query ($id: Int, $page: Int, $perPage: Int, $search: String) {
+export async function getArraybyName(name: string, perPage: number, page?: number): Promise<Character[] | null> {
+  if (!page) {
+    page = 1;
+  }
+  const variablesPage = {
+    search: name,
+    sort: 'SEARCH_MATCH',
+    page,
+    perPage,
+  };
+  const queryPage = `query ($id: Int, $page: Int, $perPage: Int, $search: String) {
             Page(page: $page, perPage: $perPage) {
               pageInfo {
                 total
@@ -138,10 +138,10 @@ export async function getArraybyName(name: string, perPage: number, page?: numbe
               }
             }
           }`;
-    const results = await anilistRequest(queryPage, variablesPage);
-    if (results == null) return null;
-    if (results.Page.characters.length == 0) return null;
-    return results.Page.characters as Promise<Character[]>;
+  const results = await anilistRequest(queryPage, variablesPage);
+  if (results == null) return null;
+  if (results.Page.characters.length == 0) return null;
+  return results.Page.characters as Promise<Character[]>;
 }
 /**
  * return character by id
@@ -149,7 +149,7 @@ export async function getArraybyName(name: string, perPage: number, page?: numbe
  * @returns character or null
  */
 
-export async function getByID(id: number):Promise<Character|null> {
+export async function getByID(id: number): Promise<Character | null> {
   const variables = {
     id,
     sort: 'SEARCH_MATCH',
