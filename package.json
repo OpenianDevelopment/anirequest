@@ -1,6 +1,6 @@
 {
-  "name": "anirequest",
-  "version": "0.0.2",
+  "name": "@openian-development/anirequest",
+  "version": "0.1.0",
   "description": "",
   "scripts": {
     "build": "tsc",

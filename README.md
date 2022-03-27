@@ -3,12 +3,12 @@
 ` npm install anirequest`
 
 ```ts
-import anidata from 'anirequest'
+import anirequest from 'anirequest'
 
 run()
 
 async function run(){
-    console.log(await anidata.anilist.character.getByName("rias"))
+    console.log(await anirequest.anilist.character.getByName("rias"))
 }
 ```
 ## Results
