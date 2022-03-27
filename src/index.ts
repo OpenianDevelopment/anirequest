@@ -1,7 +1,9 @@
 import anilist from './anilist/anilist';
+import mal from './mal/mal'
 
-const anidata = {
+const anirequest = {
   anilist,
+  mal
 };
 
-export default anidata;
+export default anirequest;
