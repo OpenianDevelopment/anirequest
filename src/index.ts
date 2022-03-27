@@ -1,9 +1,9 @@
 import anilist from './anilist/anilist';
-import mal from './mal/mal'
+import mal from './mal/mal';
 
 const anirequest = {
   anilist,
-  mal
+  mal,
 };
 
 export default anirequest;
