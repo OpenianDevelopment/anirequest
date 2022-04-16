@@ -105,10 +105,10 @@ export interface Character {
   description: string | null;
   gender: string | null;
   age: string | null;
-  anime: { nodes: nodes[] };
-  manga: { nodes: nodes[] };
+  anime: { nodes: Nodes[] };
+  manga: { nodes: Nodes[] };
 }
-export interface nodes {
+export interface Nodes {
   title: {
     romaji: string | null;
     english: string | null;

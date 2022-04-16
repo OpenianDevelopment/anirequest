@@ -2,7 +2,7 @@ import { anilistRequest, Anime } from './global';
 
 /**
  * return anime by name
- * @param name name of anime
+ * @param {string} name name of anime
  * @returns anime or null
  */
 export async function getByName(name: string): Promise<Anime | null> {
@@ -10,8 +10,8 @@ export async function getByName(name: string): Promise<Anime | null> {
     search: name,
   };
   const query = `query ($id: Int, $search: String) {
-            Media(id: $id, search: $search, type: ANIME) {
-              id
+    Media(id: $id, search: $search, type: ANIME) {
+    id
     type
     title {
       romaji
@@ -69,12 +69,12 @@ export async function getByName(name: string): Promise<Anime | null> {
 }
 /**
  * return array of anime
- * @param name name of anime
- * @param perPage how many per page
- * @param page select page to show (not required)
- * @returns anime array or null
+ * @param {string} name name of anime
+ * @param {number} perPage how many per page
+ * @param {number} page select page to show (not required)
+ * @returns anime array
  */
-export async function getArrayByName(name: string, perPage: number, page?: number): Promise<Anime[] | null> {
+export async function getArrayByName(name: string, perPage: number, page?: number): Promise<Anime[] | []> {
   if (!page) {
     page = 1;
   }
@@ -147,17 +147,17 @@ export async function getArrayByName(name: string, perPage: number, page?: numbe
       }
     }`;
   const results = await anilistRequest(queryPage, variablesPage);
-  if (results == null) return null;
-  if (results.Page.media.length == 0) return null;
+  if (results == null) return [];
+  if (results.Page.media.length === 0) return [];
   return results.Page.media as Promise<Anime[]>;
 }
 /**
  * return anime by id
- * @param id id of anime
+ * @param {number} id id of anime
  * @returns null or anime
  */
 
-export async function getByID(id: number) {
+export async function getByID(id: number): Promise<Anime | null> {
   const variables = {
     id,
   };

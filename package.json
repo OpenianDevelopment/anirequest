@@ -1,12 +1,12 @@
 {
   "name": "@openian-development/anirequest",
-  "version": "0.1.6",
+  "version": "0.1.0",
   "description": "",
   "scripts": {
     "build": "tsc",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json"
- },
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "module": "dist/index.mjs",

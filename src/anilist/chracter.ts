@@ -1,9 +1,9 @@
 import { anilistRequest, Character } from './global';
 /**
  * return chracter by name
- * @param name chracter name
+ * @param {string} name chracter name
  * @returns chracter or null
- **/
+ */
 export async function getByName(name: string): Promise<Character | null> {
   const variables = {
     search: name,
@@ -59,18 +59,18 @@ export async function getByName(name: string): Promise<Character | null> {
         }
       }`;
   const data = await anilistRequest(query, variables);
-  if (data == null) return null;
+  if (data === null) return null;
   return data.Character as Promise<Character>;
 }
 /**
  * return array of characters by name
- * @param name name of character
- * @param perPage how many per page
- * @param page select page to show (not required)
- * @returns array of character or null
+ * @param {string} name name of character
+ * @param {number} perPage how many per page
+ * @param {number} page select page to show (not required)
+ * @returns array of character
  */
 
-export async function getArraybyName(name: string, perPage: number, page?: number): Promise<Character[] | null> {
+export async function getArraybyName(name: string, perPage: number, page?: number): Promise<Character[] | []> {
   if (!page) {
     page = 1;
   }
@@ -139,13 +139,13 @@ export async function getArraybyName(name: string, perPage: number, page?: numbe
             }
           }`;
   const results = await anilistRequest(queryPage, variablesPage);
-  if (results == null) return null;
-  if (results.Page.characters.length == 0) return null;
+  if (results == null) return [];
+  if (results.Page.characters.length === 0) return [];
   return results.Page.characters as Promise<Character[]>;
 }
 /**
  * return character by id
- * @param id id of chracter
+ * @param {number} id id of chracter
  * @returns character or null
  */
 

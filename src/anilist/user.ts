@@ -1,9 +1,9 @@
 import { anilistRequest, User } from './global';
 /**
  * Returns a single User by name
- * @param name name of User
+ * @param {name} user name of User
  * @returns user or null
- **/
+ */
 export async function getByName(name: string): Promise<User | null> {
   const variables = {
     search: name,
@@ -48,12 +48,12 @@ export async function getByName(name: string): Promise<User | null> {
 }
 /**
  * Returns multiple User by name
- * @param name name of Users
- * @param perPage how many per page
- * @param page select page to show (not required)
+ * @param {name} name name of Users
+ * @param {perPage} perPage how many per page
+ * @param {page} page select page to show (not required)
  * @returns user or null
- **/
-export async function getArrayByName(name: string, perPage: number, page?: number): Promise<User[] | null> {
+ */
+export async function getArrayByName(name: string, perPage: number, page?: number): Promise<User[] | []> {
   if (!page) {
     page = 1;
   }
@@ -106,15 +106,15 @@ export async function getArrayByName(name: string, perPage: number, page?: numbe
             }
           }`;
   const results = await anilistRequest(queryPage, variablesPage);
-  if (results == null) return null;
-  if (results.Page.users.length == 0) return null;
+  if (results == null) return [];
+  if (results.Page.users.length === 0) return [];
   return results.Page.users as Promise<User[]>;
 }
 /**
  * Returns a single User by id
  * @param id id of User
  * @returns user or null
- **/
+ */
 export async function getByID(id: number): Promise<User | null> {
   const variables = {
     id,
