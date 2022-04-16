@@ -2,7 +2,10 @@
     "entryPoints": ["./src"],
     "out": "docs",
     "entryPointStrategy":"expand",
-    "exclude":"**/*+(index|global|*Interface).ts",
+    "exclude":"**/*+(index|global).ts",
+    "tsconfig":"./tsconfig.json",
+    "plugin":"./node_modules/typedoc-theme-hierarchy/dist/index.js",
+    "theme":"hierarchy",
     "githubPages":true,
     "cleanOutputDir":true
 }

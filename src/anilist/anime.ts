@@ -1,4 +1,5 @@
-import { anilistRequest, Anime } from './global';
+import { anilistRequest} from './global';
+import {Anime} from './Interfaces/animeInterface'
 
 /**
  * return anime by name

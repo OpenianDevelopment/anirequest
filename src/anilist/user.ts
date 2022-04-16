@@ -1,7 +1,8 @@
-import { anilistRequest, User } from './global';
+import { anilistRequest } from './global';
+import {User} from './Interfaces/userinterface'
 /**
  * Returns a single User by name
- * @param {name} user name of User
+ * @param {string} name name of User
  * @returns user or null
  */
 export async function getByName(name: string): Promise<User | null> {

@@ -1,4 +1,5 @@
-import { anilistRequest, Manga } from './global';
+import { anilistRequest } from './global';
+import {Manga} from './Interfaces/mangaInterface'
 /**
  * return manga by name
  * @param {string} name of manga
