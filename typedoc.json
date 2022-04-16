@@ -1,0 +1,8 @@
+{
+    "entryPoints": ["./src"],
+    "out": "doc",
+    "entryPointStrategy":"expand",
+    "exclude":"**/*+(index|global|*Interface).ts",
+    "githubPages":true,
+    "cleanOutputDir":true
+}
