@@ -21,7 +21,7 @@ import {
  * @param {number} Id MyAnimeList ID
  * @return {Promise<MangaDataById>}
  */
-export async function getMangaById(Id: number): Promise<MangaDataById> {
+export async function getById(Id: number): Promise<MangaDataById> {
   const urlString = `manga/${Id}`;
   return await malRequest(urlString);
 }
@@ -31,7 +31,7 @@ export async function getMangaById(Id: number): Promise<MangaDataById> {
  * @param {number} Id MyAnimeList ID
  * @return {Promise<MangaCharacters>}
  */
-export async function getMangaCharacters(Id: number): Promise<MangaCharacters> {
+export async function getCharacters(Id: number): Promise<MangaCharacters> {
   const urlString = `manga/${Id}/characters`;
   return await malRequest(urlString);
 }
@@ -41,7 +41,7 @@ export async function getMangaCharacters(Id: number): Promise<MangaCharacters> {
  * @param {number} Id MyAnimeList ID
  * @return {Promise<MangaNews>}
  */
-export async function getMangaNews(Id: number): Promise<MangaNews> {
+export async function getNews(Id: number): Promise<MangaNews> {
   const urlString = `manga/${Id}/news`;
   return await malRequest(urlString);
 }
@@ -52,7 +52,7 @@ export async function getMangaNews(Id: number): Promise<MangaNews> {
  * @param {MangaTopicFilter} [filter] Topic filters
  * @return {Promise<MangaTopics>}
  */
-export async function getMangaTopics(Id: number, filter?: MangaTopicFilter): Promise<MangaTopics> {
+export async function getTopics(Id: number, filter?: MangaTopicFilter): Promise<MangaTopics> {
   let urlString = `manga/${Id}/forum`;
   if (filter) urlString += `?filter=${filter}`;
   return await malRequest(urlString);
@@ -63,7 +63,7 @@ export async function getMangaTopics(Id: number, filter?: MangaTopicFilter): Pro
  * @param {number} Id MyAnimeList ID
  * @return {Promise<MangaPictures>}
  */
-export async function getMangaPictures(Id: number): Promise<MangaPictures> {
+export async function getPictures(Id: number): Promise<MangaPictures> {
   const urlString = `manga/${Id}/pictures`;
   return await malRequest(urlString);
 }
@@ -73,7 +73,7 @@ export async function getMangaPictures(Id: number): Promise<MangaPictures> {
  * @param {number} Id MyAnimeList ID
  * @return {Promise<MangaStatistics>}
  */
-export async function getMangaStatistics(Id: number): Promise<MangaStatistics> {
+export async function getStatistics(Id: number): Promise<MangaStatistics> {
   const urlString = `manga/${Id}/statistics`;
   return await malRequest(urlString);
 }
@@ -83,7 +83,7 @@ export async function getMangaStatistics(Id: number): Promise<MangaStatistics> {
  * @param {number} Id MyAnimeList ID
  * @return {Promise<MangaMoreInfo>}
  */
-export async function getMangaMoreInfo(Id: number): Promise<MangaMoreInfo> {
+export async function getMoreInfo(Id: number): Promise<MangaMoreInfo> {
   const urlString = `manga/${Id}/moreinfo`;
   return await malRequest(urlString);
 }
@@ -93,7 +93,7 @@ export async function getMangaMoreInfo(Id: number): Promise<MangaMoreInfo> {
  * @param {number} Id MyAnimeList ID
  * @return {Promise<MangaRecommendations>}
  */
-export async function getMangaRecommendations(Id: number): Promise<MangaRecommendations> {
+export async function getRecommendations(Id: number): Promise<MangaRecommendations> {
   const urlString = `manga/${Id}/recommendations`;
   return await malRequest(urlString);
 }
@@ -103,7 +103,7 @@ export async function getMangaRecommendations(Id: number): Promise<MangaRecommen
  * @param {number} Id MyAnimeList ID
  * @return {Promise<MangaUserUpdates>}
  */
-export async function getMangaUserUpdates(Id: number): Promise<MangaUserUpdates> {
+export async function getUserUpdates(Id: number): Promise<MangaUserUpdates> {
   const urlString = `manga/${Id}/userupdates`;
   return await malRequest(urlString);
 }
@@ -113,7 +113,7 @@ export async function getMangaUserUpdates(Id: number): Promise<MangaUserUpdates>
  * @param {number} Id MyAnimeList ID
  * @return {Promise<MangaReviews>}
  */
-export async function getMangaReviews(Id: number): Promise<MangaReviews> {
+export async function getReviews(Id: number): Promise<MangaReviews> {
   const urlString = `manga/${Id}/reviews`;
   return await malRequest(urlString);
 }
@@ -123,7 +123,7 @@ export async function getMangaReviews(Id: number): Promise<MangaReviews> {
  * @param {number} Id MyAnimeList ID
  * @return {Promise<MangaRelations>}
  */
-export async function getMangaRelations(Id: number): Promise<MangaRelations> {
+export async function getRelations(Id: number): Promise<MangaRelations> {
   const urlString = `manga/${Id}/relations`;
   return await malRequest(urlString);
 }
@@ -133,7 +133,7 @@ export async function getMangaRelations(Id: number): Promise<MangaRelations> {
  * @param {number} Id MyAnimeList ID
  * @return {Promise<MangaExternal>}
  */
-export async function getMangaExternal(Id: number): Promise<MangaExternal> {
+export async function getExternal(Id: number): Promise<MangaExternal> {
   const urlString = `manga/${Id}/external`;
   return await malRequest(urlString);
 }

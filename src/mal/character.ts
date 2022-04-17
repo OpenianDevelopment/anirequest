@@ -13,7 +13,7 @@ import {
  * @param {number} Id MyAnimeList ID
  * @return {Promise<CharacterById>}
  */
-export async function getCharacterById(Id: number): Promise<CharacterById> {
+export async function getById(Id: number): Promise<CharacterById> {
   const urlString = `characters/${Id}`;
   return await malRequest(urlString);
 }
@@ -23,7 +23,7 @@ export async function getCharacterById(Id: number): Promise<CharacterById> {
  * @param {number} Id MyAnimeList ID
  * @return {Promise<CharacterAnime>}
  */
-export async function getCharacterAnime(Id: number): Promise<CharacterAnime> {
+export async function getAnime(Id: number): Promise<CharacterAnime> {
   const urlString = `characters/${Id}/anime`;
   return await malRequest(urlString);
 }
@@ -33,7 +33,7 @@ export async function getCharacterAnime(Id: number): Promise<CharacterAnime> {
  * @param {number} Id MyAnimeList ID
  * @return {Promise<CharacterManga>}
  */
-export async function getCharacterManga(Id: number): Promise<CharacterManga> {
+export async function getManga(Id: number): Promise<CharacterManga> {
   const urlString = `characters/${Id}/manga`;
   return await malRequest(urlString);
 }
@@ -43,7 +43,7 @@ export async function getCharacterManga(Id: number): Promise<CharacterManga> {
  * @param {number} Id MyAnimeList ID
  * @return {Promise<CharacterVoiceActors>}
  */
-export async function getCharacterVoiceActors(Id: number): Promise<CharacterVoiceActors> {
+export async function getVoiceActors(Id: number): Promise<CharacterVoiceActors> {
   const urlString = `characters/${Id}/voices`;
   return await malRequest(urlString);
 }
@@ -53,7 +53,7 @@ export async function getCharacterVoiceActors(Id: number): Promise<CharacterVoic
  * @param {number} Id MyAnimeList ID
  * @return {Promise<CharacterPictures>}
  */
-export async function getCharacterPictures(Id: number): Promise<CharacterPictures> {
+export async function getPictures(Id: number): Promise<CharacterPictures> {
   const urlString = `characters/${Id}/pictures`;
   return await malRequest(urlString);
 }
