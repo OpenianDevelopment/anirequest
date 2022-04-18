@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+/* eslint-disable no-use-before-define */
 export interface CharacterById {
   data: CharacterData;
 }

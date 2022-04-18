@@ -1,9 +1,16 @@
-# AniData
+# AniRequest
 
-## Docs
+<a href="https://www.npmjs.com/package/@openian-development/anirequest"><img src="https://img.shields.io/npm/dt/@openian-development/anirequest?label=Downloads&logo=NPM" alt="Total Downloads (NPM Link)" /></a> <a href="https://www.npmjs.com/package/@openian-development/anirequest"><img src="https://img.shields.io/npm/dt/@openian-development/anirequest?label=Monthly&logo=NPM" alt="Total Downloads (NPM Link)" /></a> <a href="https://www.patreon.com/rohank05"><img src="https://img.shields.io/badge/donate-patreon-F96854.svg" alt="Patreon" /></a> <a href="https://menhera-chan.in/support"><img src="https://img.shields.io/discord/735899211677041099?color=5865F2&logo=discord&logoColor=white" alt="Discord server" /></a>
+
+Multiple anime tracker api interface
+
+## Documentation
 
 [Documention here](https://openiandevelopment.github.io/anirequest/index.html)
  
+## Additional Info
+
+any issues report [in our github](https://github.com/OpenianDevelopment/anirequest/issues)
 
 ## Getting started
 ` npm i @openian-development/anirequest`
@@ -173,6 +180,3 @@ async function run() {
 
 
 ```
-## Additional Info
-
-any issues report [in our github](https://github.com/OpenianDevelopment/anirequest/issues)
