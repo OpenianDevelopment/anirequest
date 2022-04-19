@@ -4,10 +4,30 @@ export interface Manga {
   id: number;
   idMal: number | null;
   type: string;
+<<<<<<< Updated upstream
   title: title;
   description: string | null;
   coverImage: coverImage;
   startDate: startDate;
+=======
+  title: {
+    romaji: string | null;
+    english: string | null;
+    natvie: string | null;
+  };
+  description: string | null;
+  coverImage: {
+    extraLarge: string;
+    large: string;
+    medium: string;
+    color: string;
+  };
+  startDate: {
+    year: number | null;
+    month: number | null;
+    day: number | null;
+  };
+>>>>>>> Stashed changes
   format: string;
   status: string;
   chapters: number | null;

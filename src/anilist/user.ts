@@ -1,5 +1,5 @@
 import { anilistRequest } from './global';
-import {User} from './Interfaces/userinterface'
+import { User } from './Interfaces/userinterface';
 /**
  * Returns a single User by name
  * @param {string} name name of User

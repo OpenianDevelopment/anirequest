@@ -19,5 +19,3 @@ async function handleResponse(response: Response) {
   const json = await response.json();
   return response.ok ? json : Promise.reject(json);
 }
-
-

@@ -1,5 +1,10 @@
+<<<<<<< Updated upstream
 import { anilistRequest } from './global'
 import { Anime } from './Interfaces/animeInterface'
+=======
+import { anilistRequest } from './global';
+import { Anime } from './Interfaces/animeInterface';
+>>>>>>> Stashed changes
 
 /**
  * return anime by name

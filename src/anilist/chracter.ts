@@ -1,5 +1,5 @@
 import { anilistRequest } from './global';
-import {Character} from './Interfaces/characterInterface'
+import { Character } from './Interfaces/characterInterface';
 /**
  * return chracter by name
  * @param {string} name chracter name
