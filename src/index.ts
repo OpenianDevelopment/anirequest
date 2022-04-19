@@ -20,9 +20,6 @@ const mal = {
   manga: malManag
 }
 
-<<<<<<< Updated upstream
-export default { anilist, mal }
-=======
 import * as kitAnime from './kitsu/anime';
 
 const kitsu = {
@@ -30,4 +27,3 @@ const kitsu = {
 };
 
 export default { anilist, mal, kitsu };
->>>>>>> Stashed changes

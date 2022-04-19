@@ -1,4 +1,4 @@
-import { kitsuRequest } from './global';
+import { kitsuRequest } from './global'
 
 /**
  * get manga by id
@@ -6,8 +6,8 @@ import { kitsuRequest } from './global';
  * @returns
  */
 
-export async function getById(id: number) {
-  return await kitsuRequest(`manga/${id}`);
+export async function getById (id: number) {
+  return await kitsuRequest(`manga/${id}`)
 }
 
 /**
@@ -16,6 +16,6 @@ export async function getById(id: number) {
  * @returns
  */
 
-export async function getChapters(id: number) {
-  return await kitsuRequest(`manga/${id}/chapters`);
+export async function getChapters (id: number) {
+  return await kitsuRequest(`manga/${id}/chapters`)
 }
