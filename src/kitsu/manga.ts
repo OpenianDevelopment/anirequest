@@ -1,4 +1,5 @@
 import { kitsuRequest } from './global'
+import { Manga } from './Intrefaces/mangaInterace'
 
 /**
  * get manga by id
@@ -6,7 +7,7 @@ import { kitsuRequest } from './global'
  * @returns
  */
 
-export async function getById (id: number) {
+export async function getById (id: number) : Promise<Manga> {
   return await kitsuRequest(`manga/${id}`)
 }
 

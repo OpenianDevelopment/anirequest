@@ -7,5 +7,5 @@ import { kitsuRequest } from './global'
  */
 
 export async function getById (id: number) {
-  return await kitsuRequest(`manga/${id}`)
+  return await kitsuRequest(`users/${id}`)
 }

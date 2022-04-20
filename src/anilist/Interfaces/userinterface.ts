@@ -1,6 +1,6 @@
 export interface User {
   id: number;
-  name: string | null;
+  name: string ;
   createdAt: number;
   previousNames: {
     name: string;
@@ -8,16 +8,16 @@ export interface User {
     updatedAt: number;
   }[];
   updatedAt: number;
-  bannerImage: string | null;
+  bannerImage: string ;
   avatar: {
-    large: string | null;
-    medium: string | null;
+    large: string ;
+    medium: string ;
   };
-  about: string | null;
+  about: string ;
   statistics: {
     anime: { count: number; episodesWatched: number; minutesWatched: number };
     manga: { count: number; volumesRead: number; chaptersRead: number };
   };
-  unreadNotificationCount: number | null;
+  unreadNotificationCount: number ;
   siteUrl: string;
 }

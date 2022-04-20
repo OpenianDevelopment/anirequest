@@ -1,5 +1,6 @@
 import { kitsuRequest } from './global'
-import { Anime } from './Intrefaces/animeInterface'
+import { Anime, animeCasting, animeCategories, animeEpisode, stramingLinks } from './Intrefaces/animeInterface'
+import { genres, mappings, mediaCharacters, MediaRelationship, MediaStaff } from './Intrefaces/commonInterface'
 /**
  * return anime by id
  * @param {number} id id of anime
@@ -16,7 +17,7 @@ export async function getById (id: number) : Promise<Anime> {
  * @returns
  */
 
-export async function getEpisodes (id: number) {
+export async function getEpisodes (id: number) : Promise<animeEpisode[]> {
   return await kitsuRequest(`anime/${id}/episodes`)
 }
 
@@ -25,7 +26,7 @@ export async function getEpisodes (id: number) {
  * @param {number} id id of anime
  * @returns
  */
-export async function getGenres (id:number) {
+export async function getGenres (id:number) : Promise<genres[]> {
   return await kitsuRequest(`anime/${id}/genres`)
 }
 
@@ -34,80 +35,53 @@ export async function getGenres (id:number) {
  * @param {number} id id of anime
  * @returns
  */
-export async function getCategory (id:number) {
+export async function getCategory (id:number) : Promise<animeCategories[]> {
   return await kitsuRequest(`anime/${id}/categories`)
 }
 
 /**
- * returns castings
+ * returns anime castings
  * @param {number} id id of anime
  * @returns
  */
-export async function getCastings (id:number) {
+export async function getCastings (id:number) : Promise<animeCasting[]> {
   return await kitsuRequest(`anime/${id}/castings`)
 }
 
 /**
- * returns installments
+ * returns anime mappings
  * @param {number} id id of anime
  * @returns
  */
-export async function getInstallments (id:number) {
-  return await kitsuRequest(`anime/${id}/installments`)
-}
-
-/**
- * returns mappings
- * @param {number} id id of anime
- * @returns
- */
-export async function getMappings (id:number) {
+export async function getMappings (id:number) : Promise<mappings[]> {
   return await kitsuRequest(`anime/${id}/mappings`)
 }
 
 /**
- * returns reviews
+ * returns anime media relations
  * @param {number} id id of anime
  * @returns
  */
-export async function getMediaRelationship (id:number) {
-  return await kitsuRequest(`anime/${id}/mediaRelationships`)
+export async function getMediaRelationship (id:number) : Promise<MediaRelationship[]> {
+  return await kitsuRequest(`anime/${id}/media-relationships`)
 }
 
 /**
- * returns character
+ * returns anime character
  * @param {number} id id of anime
  * @returns
  */
-export async function getCharacters (id:number) {
+export async function getCharacters (id:number) : Promise<mediaCharacters[]> {
   return await kitsuRequest(`anime/${id}/characters`)
 }
 
 /**
- * returns staff
+ * returns anime staff
  * @param {number} id id of anime
  * @returns
  */
-export async function getStaff (id:number) {
+export async function getStaff (id:number) : Promise<MediaStaff[]> {
   return await kitsuRequest(`anime/${id}/staff`)
-}
-
-/**
- * returns production
- * @param {number} id id of anime
- * @returns
- */
-export async function getProduction (id:number) {
-  return await kitsuRequest(`anime/${id}/`)
-}
-
-/**
- * returns quotes
- * @param {number} id id of anime
- * @returns
- */
-export async function getQuotes (id:number) {
-  return await kitsuRequest(`anime/${id}/quotes`)
 }
 
 /**
@@ -115,6 +89,6 @@ export async function getQuotes (id:number) {
  * @param {number} id id of anime
  * @returns
  */
-export async function getStreamingLinks (id:number) {
-  return await kitsuRequest(`anime/${id}/streamingLinks`)
+export async function getStreamingLinks (id:number) : Promise<stramingLinks[]> {
+  return await kitsuRequest(`anime/${id}/streaming-links`)
 }

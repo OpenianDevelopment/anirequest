@@ -1,104 +1,143 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable camelcase */
+
+import { image, apiLinks, ratingFrequenies, titles } from './commonInterface'
+
 export interface Anime {
-    data:{
-        id:number
-        type:string
-        link:{self:string}
-        attributes:{
-            createdAt: string
-            updatedAt: string
-            slug: string
-            synopsis: string
-            description: string
-            coverImageTopOffset: number
-            titles: {
-                en: string,
-                en_jp: string,
-                en_us: string,
-                ja_jp: string
-            }
-            canonicalTitle: string
-            abbreviatedTitles:string[]
-            averageRating: string
-            ratingFrequenies:{
-                '2':string
-                '3':string
-                '4':string
-                '5':string
-                '6':string
-                '7':string
-                '8':string
-                '9':string
-                '10':string
-                '11':string
-                '12':string
-                '13':string
-                '14':string
-                '15':string
-                '16':string
-                '17':string
-                '18':string
-                '19':string
-                '20':string
-            }
-            userCount: number
-            favoritesCount: number
-            startDate: string
-            endDate: string
-            nextRelease: string
-            popularityRank: number
-            ratingRank: number
-            ageRating: string
-            ageRatingGuide: string
-            subtype: string
-            status: string
-            tba: string
-            posterImage: {
-                tiny: string,
-                large: string,
-                small: string,
-                medium: string,
-                original: string,
-                meta: { dimensions: {} }
-            }
-            coverImage: {
-                tiny: string,
-                large: string,
-                small: string,
-                medium: string,
-                original: string,
-                meta: { dimensions: {} }
-            }
-            episodeCount: number
-            episodeLength: number
-            totalLength: number
-            youtubeVideoId: string
-            showType: string
-            nsfw:boolean
-        }
-        relationships:{
-            genres: { links: links}
-            categories: {links: links}
-            castings: {links: links}
-            installments: {links: links}
-            mappings: {links: links}
-            reviews: {links: links}
-            mediaRelationships: {links: links}
-            characters: {links: links}
-            staff:{links: links}
-            productions:{links: links}
-            quotes:{links: links}
-            episodes:{links: links}
-            streamingLinks:{links: links}
-            animeProductions:{links: links}
-            animeCharacters:{links: links}
-            animeStaff:{links: links}
-        }
+    id: number
+    type: string
+    link: {self: string}
+    attributes: {
+        createdAt: string
+        updatedAt: string
+        slug: string
+        synopsis: string
+        description: string
+        coverImageTopOffset: number
+        titles: titles
+        canonicalTitle: string
+        abbreviatedTitles: string[]
+        averageRating: string
+        ratingFrequenies: ratingFrequenies
+        userCount: number
+        favoritesCount: number
+        startDate: string
+        endDate: string
+        nextRelease: string
+        popularityRank: number
+        ratingRank: number
+        ageRating: string
+        ageRatingGuide: string
+        subtype: string
+        status: string
+        tba: string
+        posterImage: image
+        coverImage: image
+        episodeCount: number
+        episodeLength: number
+        totalLength: number
+        youtubeVideoId: string
+        showType: string
+        nsfw: boolean
+    }
+    relationships: {
+        genres: apiLinks
+        categories: apiLinks
+        castings: apiLinks
+        installments: apiLinks
+        mappings: apiLinks
+        reviews: apiLinks
+        mediaRelationships: apiLinks
+        characters: apiLinks
+        staff: apiLinks
+        productions: apiLinks
+        quotes: apiLinks
+        episodes: apiLinks
+        streamingapiLinks: apiLinks
+        animeProductions: apiLinks
+        animeCharacters: apiLinks
+        animeStaff: apiLinks
     }
 }
 
-export interface links {
-    self: string
-    related: string
+export interface animeCasting{
+    id: string
+    type: string
+    apiLinks: { self: string }
+    attributes: {
+      createdAt: string
+      updatedAt: string
+      role: string
+      voiceActor: boolean
+      featured: boolean
+      language: string
+    }
+    relationships: {
+        media: apiLinks,
+        character: apiLinks
+        person: apiLinks
+    }
+}
+
+export interface animeCategories{
+    id: string
+    type: string
+    apiLinks: { self: string }
+    attributes: {
+        createdAt: string
+        updatedAt: string
+        title: string
+        description: string
+        totalMediaCount: number
+        slug: string
+        nsfw: boolean
+        childCount: number
+    },
+    relationships: {
+        parent: apiLinks
+        anime: apiLinks
+        drama: apiLinks
+        manga: apiLinks
+    }
+}
+
+export interface animeEpisode{
+    id: '229115',
+    type: 'episodes',
+    links: { self: 'https://kitsu.io/api/edge/episodes/229115' },
+    attributes: {
+        createdAt: string
+        updatedAt: string
+        synopsis: string
+        description: string
+        titles: titles
+        canonicalTitle: string
+        seasonNumber: number
+        number: number
+        relativeNumber: boolean
+        airdate: string
+        length: number
+        thumbnail: image
+    },
+    relationships: {
+        media: apiLinks
+        videos: apiLinks
+    }
+}
+
+export interface stramingLinks {
+    id: string
+    type: string
+    links: { self: string }
+    attributes: {
+      createdAt: string
+      updatedAt: string
+      url: string
+      subs: string[]
+      dubs: string[]
+    },
+    relationships: {
+        streamer: apiLinks
+        media: apiLinks
+    }
 }

@@ -2,27 +2,27 @@ import { coverImage, startDate, title } from './commonInterface'
 
 export interface Manga {
   id: number;
-  idMal: number | null;
+  idMal: number ;
   type: string;
   title: title;
-  description: string | null;
+  description: string ;
   coverImage: coverImage;
   startDate: startDate;
   format: string;
   status: string;
-  chapters: number | null;
-  volumes: number | null;
+  chapters: number ;
+  volumes: number ;
   isAdult: boolean;
-  averageScore: number | null;
+  averageScore: number ;
   siteUrl: string;
-  trailer: string | null;
+  trailer: string ;
   genres: string[];
-  trending: number | null;
+  trending: number ;
   relations: {
     edges: { id: number }[];
   };
-  favourites: number | null;
+  favourites: number ;
   synonys: string[];
-  countryOfOrigin: string | null;
+  countryOfOrigin: string ;
   source: string;
 }

@@ -11,5 +11,5 @@ export async function kitsuRequest (mod: string) {
   const requestData = await fetch(url, options)
     .then((res: any) => res.json())
     .catch()
-  return requestData as any
+  return requestData.data as any
 }

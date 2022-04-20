@@ -4,17 +4,17 @@ export interface Anime {
   id: number;
   type: string;
   title: title;
-  description: string | null;
+  description: string ;
   coverImage: coverImage;
   startDate: startDate;
   endDate: endDate;
-  season: season | null;
-  seasonYear: number | null;
+  season: season ;
+  seasonYear: number ;
   nextAiringEpisode: {
     episode: number;
     timeUntilAiring: number;
-  } | null;
-  countryOfOrigin: string | null;
+  } ;
+  countryOfOrigin: string ;
   trailer: {
     id: string;
   };
@@ -25,7 +25,7 @@ export interface Anime {
     edges: [];
   };
   status: string;
-  popularity: number | null;
+  popularity: number ;
   episodes: number;
   trending: number;
   duration: number;

@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
 export interface title{
-    romaji: string | null;
-    english: string | null;
-    userPreferred: string | null;
-    native: string | null;
+    romaji: string ;
+    english: string ;
+    userPreferred: string ;
+    native: string ;
 }
 export interface coverImage {
     extraLarge: string;
@@ -12,14 +12,14 @@ export interface coverImage {
     color: string;
 }
 export interface startDate {
-    year: number | null;
-    month: number | null;
-    day: number | null;
+    year: number ;
+    month: number ;
+    day: number ;
 };
 export interface endDate {
-    year: number | null;
-    month: number | null;
-    day: number | null;
+    year: number ;
+    month: number ;
+    day: number ;
 };
 export enum season {
     WINTER = 'WINTER',
