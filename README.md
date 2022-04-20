@@ -15,7 +15,24 @@ Any issues report [in our github](https://github.com/OpenianDevelopment/anireque
 ## Getting started
 
 ` npm i @openian-development/anirequest`
+### JavaScript
 
+```js
+const anirequest = require('@openian-development/anirequest')
+
+run()
+
+async function run(){
+    // anilist
+    console.log(await anirequest.anilist.anime.getByID(1))
+    // my anime list
+    console.log(await anirequest.mal.anime.getById(1))
+    // kitsu
+    console.log(await anirequest.kitsu.anime.getById(1))
+}
+```
+
+### TypeScript
 
 ```ts
 import anirequest from '@openian-development/anirequest'

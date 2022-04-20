@@ -32,3 +32,7 @@ const kitsu = {
 }
 
 export default { anilist, mal, kitsu }
+
+module.exports = {
+  anilist, mal, kitsu
+}
