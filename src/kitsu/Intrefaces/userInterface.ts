@@ -57,3 +57,96 @@ export interface User {
         quotes: apiLinks
     }
 }
+
+export interface followers {
+    id: string
+    type: string
+    links: { self: string }
+    attributes: {
+      createdAt: string
+      updatedAt: string
+    },
+    relationships: { follower: apiLinks, followed: apiLinks }
+}
+
+export interface favorites {
+    id: string
+    type: string
+    links: { self: string }
+    attributes: {
+      createdAt: string
+      updatedAt: string
+      favRank: number
+    }
+    relationships: { user: apiLinks, item: apiLinks }
+}
+
+export interface following {
+    id: string
+    type: string
+    links: { self: string },
+    attributes: {
+      createdAt: string
+      updatedAt: string
+    },
+    relationships: { follower: apiLinks, followed: apiLinks }
+}
+
+export interface libraryEntries {
+    id: string
+    type: string
+    links: { self: string },
+    attributes: {
+        createdAt: string
+        updatedAt: string
+        status: string
+        progress: number
+        volumesOwned: number
+        reconsuming: boolean
+        reconsumeCount: number
+        notes: string
+        private: boolean
+        reactionSkipped: string
+        progressedAt: string
+        startedAt: string
+        finishedAt: string
+        rating: string
+        ratingTwenty: boolean
+    },
+    relationships: {
+        user: apiLinks
+        anime: apiLinks
+        manga: apiLinks
+        drama: apiLinks
+        review: apiLinks
+        mediaReaction: apiLinks
+        media: apiLinks
+        unit: apiLinks
+        nextUnit: apiLinks
+    }
+}
+
+export interface linkedAccounts {
+    id: string
+    type: string
+    links: { self: string }
+    attributes: {
+      createdAt: boolean
+      updatedAt: boolean
+      url: string
+    },
+    relationships: { user: apiLinks, profileLinkSite: apiLinks }
+}
+
+export interface stats {
+    id: string
+    type: string
+    links: { self: string }
+    attributes: {
+        createdAt: string
+        updatedAt: string
+        kind: string
+        statsData: {}
+  },
+  relationships: { user: { links: apiLinks } }
+}
