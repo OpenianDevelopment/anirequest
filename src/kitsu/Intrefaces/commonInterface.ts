@@ -35,7 +35,14 @@ export interface image {
     small?: string,
     medium?: string,
     original: string,
-    meta: { dimensions: {} }
+    meta: {
+        dimensions: {
+            tiny: {width: number, hight: number}
+            large: {width: number, hight: number}
+            small: {width: number, hight: number}
+            medium: {width: number, hight: number}
+        }
+    }
 }
 
 export interface apiLinks {
@@ -114,5 +121,46 @@ export interface MediaStaff {
     relationships: {
         media:apiLinks
         person:apiLinks
+    }
+}
+
+export interface Casting{
+    id: string
+    type: string
+    apiLinks: { self: string }
+    attributes: {
+      createdAt: string
+      updatedAt: string
+      role: string
+      voiceActor: boolean
+      featured: boolean
+      language: string
+    }
+    relationships: {
+        media: apiLinks,
+        character: apiLinks
+        person: apiLinks
+    }
+}
+
+export interface Categories{
+    id: string
+    type: string
+    apiLinks: { self: string }
+    attributes: {
+        createdAt: string
+        updatedAt: string
+        title: string
+        description: string
+        totalMediaCount: number
+        slug: string
+        nsfw: boolean
+        childCount: number
+    },
+    relationships: {
+        parent: apiLinks
+        anime: apiLinks
+        drama: apiLinks
+        manga: apiLinks
     }
 }

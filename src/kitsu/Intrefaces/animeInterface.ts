@@ -60,51 +60,10 @@ export interface Anime {
     }
 }
 
-export interface animeCasting{
-    id: string
-    type: string
-    apiLinks: { self: string }
-    attributes: {
-      createdAt: string
-      updatedAt: string
-      role: string
-      voiceActor: boolean
-      featured: boolean
-      language: string
-    }
-    relationships: {
-        media: apiLinks,
-        character: apiLinks
-        person: apiLinks
-    }
-}
-
-export interface animeCategories{
-    id: string
-    type: string
-    apiLinks: { self: string }
-    attributes: {
-        createdAt: string
-        updatedAt: string
-        title: string
-        description: string
-        totalMediaCount: number
-        slug: string
-        nsfw: boolean
-        childCount: number
-    },
-    relationships: {
-        parent: apiLinks
-        anime: apiLinks
-        drama: apiLinks
-        manga: apiLinks
-    }
-}
-
 export interface animeEpisode{
-    id: '229115',
-    type: 'episodes',
-    links: { self: 'https://kitsu.io/api/edge/episodes/229115' },
+    id: string
+    type: string
+    links: { self: string }
     attributes: {
         createdAt: string
         updatedAt: string

@@ -55,3 +55,25 @@ export interface Manga {
         mangaStaff: apiLinks
     }
 }
+
+export interface chapters{
+    id: string
+    type: string
+    links: { self: string }
+    attributes: {
+      createdAt: string
+      updatedAt: string
+      synopsis: string,
+      description: string,
+      titles: titles
+      canonicalTitle: string
+      volumeNumber: number
+      number: number
+      published: string
+      length: string
+      thumbnail: image
+    },
+    relationships: {
+        manga: apiLinks
+    }
+}

@@ -1,6 +1,6 @@
 import { kitsuRequest } from './global'
-import { Anime, animeCasting, animeCategories, animeEpisode, stramingLinks } from './Intrefaces/animeInterface'
-import { genres, mappings, mediaCharacters, MediaRelationship, MediaStaff } from './Intrefaces/commonInterface'
+import { Anime, animeEpisode, stramingLinks } from './Intrefaces/animeInterface'
+import { genres, mappings, Casting, Categories, mediaCharacters, MediaRelationship, MediaStaff } from './Intrefaces/commonInterface'
 /**
  * return anime by id
  * @param {number} id id of anime
@@ -35,7 +35,7 @@ export async function getGenres (id:number) : Promise<genres[]> {
  * @param {number} id id of anime
  * @returns
  */
-export async function getCategory (id:number) : Promise<animeCategories[]> {
+export async function getCategory (id:number) : Promise<Categories[]> {
   return await kitsuRequest(`anime/${id}/categories`)
 }
 
@@ -44,7 +44,7 @@ export async function getCategory (id:number) : Promise<animeCategories[]> {
  * @param {number} id id of anime
  * @returns
  */
-export async function getCastings (id:number) : Promise<animeCasting[]> {
+export async function getCastings (id:number) : Promise<Casting[]> {
   return await kitsuRequest(`anime/${id}/castings`)
 }
 
