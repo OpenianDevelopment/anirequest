@@ -91,3 +91,12 @@ export async function getCharacters (id: number) : Promise<mediaCharacters[]> {
 export async function getStaff (id: number) : Promise<MediaStaff[]> {
   return await kitsuRequest(`manga/${id}/staff`)
 }
+
+/**
+ * returns manga from name
+ * @param {string} name name of manga
+ * @returns
+ */
+export async function searchMangas (name:string) : Promise<Manga[]> {
+  return await kitsuRequest(`manga?filter[text]=${name}`)
+}

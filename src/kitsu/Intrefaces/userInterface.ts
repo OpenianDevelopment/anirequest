@@ -1,3 +1,4 @@
+import { title } from '../../anilist/Interfaces/commonInterface'
 import { image, apiLinks } from './commonInterface'
 
 export interface User {
@@ -149,4 +150,28 @@ export interface stats {
         statsData: {}
   },
   relationships: { user: { links: apiLinks } }
+}
+
+export interface waifu {
+    id: string
+    type: string
+    links: { self: string }
+    attributes: {
+        createdAt: string
+        updatedAt: string
+        slug: string
+        names: title
+        canonicalName: string
+        otherNames: string[]
+        name: string
+        malId: number
+        description: string
+        image: image
+    }
+    relationships: {
+        primaryMedia: apiLinks
+        castings: apiLinks
+        mediaCharacters: apiLinks
+        quotes: apiLinks
+    }
 }

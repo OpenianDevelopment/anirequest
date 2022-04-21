@@ -11,6 +11,7 @@ import * as malManga from './mal/manga'
 import * as kitAnime from './kitsu/anime'
 import * as kitManga from './kitsu/manga'
 import * as kitUser from './kitsu/user'
+import * as kitCharacter from './kitsu/character'
 
 const anilist = {
   anime: aniAnime,
@@ -28,7 +29,8 @@ const mal = {
 const kitsu = {
   anime: kitAnime,
   user: kitUser,
-  manga: kitManga
+  manga: kitManga,
+  character: kitCharacter
 }
 
 export default { anilist, mal, kitsu }

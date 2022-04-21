@@ -92,3 +92,12 @@ export async function getStaff (id:number) : Promise<MediaStaff[]> {
 export async function getStreamingLinks (id:number) : Promise<stramingLinks[]> {
   return await kitsuRequest(`anime/${id}/streaming-links`)
 }
+
+/**
+ * returns anime from name
+ * @param {string} name name of anime
+ * @returns
+ */
+export async function searchAnimes (name:string) : Promise<Anime[]> {
+  return await kitsuRequest(`anime?filter[text]=${name}`)
+}

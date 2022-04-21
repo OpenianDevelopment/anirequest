@@ -1,5 +1,5 @@
 import { kitsuRequest } from './global'
-import { favorites, followers, following, libraryEntries, linkedAccounts, User } from './Intrefaces/userInterface'
+import { favorites, followers, following, libraryEntries, linkedAccounts, stats, User, waifu } from './Intrefaces/userInterface'
 
 /**
  * get user by id
@@ -17,7 +17,7 @@ export async function getById (id: number) : Promise<User> {
  * @returns
  */
 
-export async function getWaifu (id: number) {
+export async function getWaifu (id: number) : Promise<waifu> {
   return await kitsuRequest(`users/${id}/waifu`)
 }
 
@@ -27,7 +27,7 @@ export async function getWaifu (id: number) {
  * @returns
  */
 
-export async function getPinnedPost (id: number) {
+export async function getPinnedPost (id: number) : Promise<any> {
   return await kitsuRequest(`users/${id}/pinned-post`)
 }
 
@@ -87,6 +87,15 @@ export async function getFavorites (id: number) : Promise<favorites[]> {
  * @returns
  */
 
-export async function getStats (id: number) {
+export async function getStats (id: number) : Promise<stats[]> {
   return await kitsuRequest(`users/${id}/stats`)
+}
+
+/**
+ * returns users from name
+ * @param {string} name name of users
+ * @returns
+ */
+export async function searchUsers (name:string) : Promise<User[]> {
+  return await kitsuRequest(`users?filter[name]=${name}`)
 }
