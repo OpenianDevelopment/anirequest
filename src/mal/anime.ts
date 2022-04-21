@@ -1,4 +1,4 @@
-import { malRequest } from './global';
+import { malRequest } from './global'
 import {
   AnimeCharacter,
   AnimeDataById,
@@ -17,8 +17,8 @@ import {
   AnimeStatistics,
   AnimeThemes,
   AnimeUserUpdates,
-  AnimeVideos,
-} from './Interfaces/animeInterface';
+  AnimeVideos
+} from './Interfaces/animeInterface'
 
 /**
  * Get anime details using it's MyAnimeList ID
@@ -26,9 +26,9 @@ import {
  * @return {Promise<AnimeDataById>}
  */
 
-export async function getById(Id: number): Promise<AnimeDataById> {
-  const urlString = `anime/${Id}`;
-  return await malRequest(urlString);
+export async function getById (Id: number): Promise<AnimeDataById> {
+  const urlString = `anime/${Id}`
+  return await malRequest(urlString)
 }
 
 /**
@@ -36,9 +36,9 @@ export async function getById(Id: number): Promise<AnimeDataById> {
  * @param {number} Id MyAnimeList ID
  * @return {Promise<AnimeCharacter[]>}
  */
-export async function getCharacters(Id: number): Promise<AnimeCharacter[]> {
-  const urlString = `anime/${Id}/characters`;
-  return await malRequest(urlString);
+export async function getCharacters (Id: number): Promise<AnimeCharacter[]> {
+  const urlString = `anime/${Id}/characters`
+  return await malRequest(urlString)
 }
 
 /**
@@ -46,9 +46,9 @@ export async function getCharacters(Id: number): Promise<AnimeCharacter[]> {
  * @param {number} Id MyAnimeList ID
  * @return {Promise<AnimeStaff>}
  */
-export async function getStaff(Id: number): Promise<AnimeStaff> {
-  const urlString = `anime/${Id}/staff`;
-  return await malRequest(urlString);
+export async function getStaff (Id: number): Promise<AnimeStaff> {
+  const urlString = `anime/${Id}/staff`
+  return await malRequest(urlString)
 }
 
 /**
@@ -57,9 +57,9 @@ export async function getStaff(Id: number): Promise<AnimeStaff> {
  * @param {number} [page=1] Page Number from which it needs to be fetched
  * @return {Promise<AnimeEpisodes>}
  */
-export async function getEpisodes(Id: number, page?: number): Promise<AnimeEpisodes> {
-  const urlString = `anime/${Id}/episodes?page=${page ? page : '1'}`;
-  return await malRequest(urlString);
+export async function getEpisodes (Id: number, page?: number): Promise<AnimeEpisodes> {
+  const urlString = `anime/${Id}/episodes?page=${page || '1'}`
+  return await malRequest(urlString)
 }
 
 /**
@@ -68,9 +68,9 @@ export async function getEpisodes(Id: number, page?: number): Promise<AnimeEpiso
  * @param {number} episode Episode number
  * @return {Promise<AnimeEpisodeById>}
  */
-export async function getEpisodeById(Id: number, episode: number): Promise<AnimeEpisodeById> {
-  const urlString = `anime/${Id}/episodes/${episode}`;
-  return await malRequest(urlString);
+export async function getEpisodeById (Id: number, episode: number): Promise<AnimeEpisodeById> {
+  const urlString = `anime/${Id}/episodes/${episode}`
+  return await malRequest(urlString)
 }
 
 /**
@@ -78,9 +78,9 @@ export async function getEpisodeById(Id: number, episode: number): Promise<Anime
  * @param {number} Id MyAnimeList ID
  * @param {number} [page=1] Page Number
  */
-export async function getNews(Id: number, page?: number): Promise<AnimeNews> {
-  const urlString = `anime/${Id}/news?page=${page}`;
-  return await malRequest(urlString);
+export async function getNews (Id: number, page?: number): Promise<AnimeNews> {
+  const urlString = `anime/${Id}/news?page=${page}`
+  return await malRequest(urlString)
 }
 
 /**
@@ -88,9 +88,9 @@ export async function getNews(Id: number, page?: number): Promise<AnimeNews> {
  * @param {number} Id MyAnimeList ID
  * @return {Promise<AnimeVideos>>}
  */
-export async function getVideos(Id: number): Promise<AnimeVideos> {
-  const urlString = `anime/${Id}/videos`;
-  return await malRequest(urlString);
+export async function getVideos (Id: number): Promise<AnimeVideos> {
+  const urlString = `anime/${Id}/videos`
+  return await malRequest(urlString)
 }
 
 /**
@@ -98,9 +98,9 @@ export async function getVideos(Id: number): Promise<AnimeVideos> {
  * @param {number} Id MyAnimeList ID
  * @return {Promise<AnimePictures>}
  */
-export async function getPictures(Id: number): Promise<AnimePictures> {
-  const urlString = `anime/${Id}/pictures`;
-  return await malRequest(urlString);
+export async function getPictures (Id: number): Promise<AnimePictures> {
+  const urlString = `anime/${Id}/pictures`
+  return await malRequest(urlString)
 }
 
 /**
@@ -108,9 +108,9 @@ export async function getPictures(Id: number): Promise<AnimePictures> {
  * @param {number} Id MyAnimeList ID
  * @return {Promise<AnimeStatistics>}
  */
-export async function getStatistics(Id: string): Promise<AnimeStatistics> {
-  const urlString = `anime/${Id}/statistics`;
-  return await malRequest(urlString);
+export async function getStatistics (Id: string): Promise<AnimeStatistics> {
+  const urlString = `anime/${Id}/statistics`
+  return await malRequest(urlString)
 }
 
 /**
@@ -118,9 +118,9 @@ export async function getStatistics(Id: string): Promise<AnimeStatistics> {
  * @param {number} Id MyAnimeList ID
  * @return {Promise <AnimeMoreInfo>}
  */
-export async function getMoreInfo(Id: number): Promise<AnimeMoreInfo> {
-  const urlString = `anime/${Id}/moreinfo`;
-  return await malRequest(urlString);
+export async function getMoreInfo (Id: number): Promise<AnimeMoreInfo> {
+  const urlString = `anime/${Id}/moreinfo`
+  return await malRequest(urlString)
 }
 
 /**
@@ -128,9 +128,9 @@ export async function getMoreInfo(Id: number): Promise<AnimeMoreInfo> {
  * @param {number} Id MyAnimeList ID
  * @return {Promise<AnimeRecommendations>}
  */
-export async function getRecommendations(Id: number): Promise<AnimeRecommendations> {
-  const urlString = `anime/${Id}/recommendations`;
-  return await malRequest(urlString);
+export async function getRecommendations (Id: number): Promise<AnimeRecommendations> {
+  const urlString = `anime/${Id}/recommendations`
+  return await malRequest(urlString)
 }
 
 /**
@@ -139,9 +139,9 @@ export async function getRecommendations(Id: number): Promise<AnimeRecommendatio
  * @param {"all" | "episode" | "other" } topic
  * @return {Promise<AnimeForum>}
  */
-export async function getForum(Id: number, topic?: 'all' | 'episode' | 'other'): Promise<AnimeForum> {
-  const urlString = `anime/${Id}/forum?topic=${topic ? topic : 'all'}`;
-  return await malRequest(urlString);
+export async function getForum (Id: number, topic?: 'all' | 'episode' | 'other'): Promise<AnimeForum> {
+  const urlString = `anime/${Id}/forum?topic=${topic || 'all'}`
+  return await malRequest(urlString)
 }
 
 /**
@@ -150,9 +150,9 @@ export async function getForum(Id: number, topic?: 'all' | 'episode' | 'other'):
  * @param {number} [page=1] page number
  * @return {Promise<AnimeUserUpdates>}
  */
-export async function getUserUpdates(Id: number, page?: number): Promise<AnimeUserUpdates> {
-  const urlString = `anime/${Id}/userupdates?page=${page ? page : '1'}`;
-  return await malRequest(urlString);
+export async function getUserUpdates (Id: number, page?: number): Promise<AnimeUserUpdates> {
+  const urlString = `anime/${Id}/userupdates?page=${page || '1'}`
+  return await malRequest(urlString)
 }
 
 /**
@@ -161,9 +161,9 @@ export async function getUserUpdates(Id: number, page?: number): Promise<AnimeUs
  * @param {number} page Page Number
  * @return {Promise<AnimeReviews>}
  */
-export async function getReviews(Id: number, page?: number): Promise<AnimeReviews> {
-  const urlString = `anime/${Id}/reviews?page=${page ? page : '1'}`;
-  return await malRequest(urlString);
+export async function getReviews (Id: number, page?: number): Promise<AnimeReviews> {
+  const urlString = `anime/${Id}/reviews?page=${page || '1'}`
+  return await malRequest(urlString)
 }
 
 /**
@@ -171,9 +171,9 @@ export async function getReviews(Id: number, page?: number): Promise<AnimeReview
  * @param {number} Id MyAnimeList ID
  * @return {Promise<AnimeRelations>}
  */
-export async function getRelations(Id: number): Promise<AnimeRelations> {
-  const urlString = `anime/${Id}/relations`;
-  return await malRequest(urlString);
+export async function getRelations (Id: number): Promise<AnimeRelations> {
+  const urlString = `anime/${Id}/relations`
+  return await malRequest(urlString)
 }
 
 /**
@@ -181,9 +181,9 @@ export async function getRelations(Id: number): Promise<AnimeRelations> {
  * @param {number} Id MyAnimeList ID
  * @return {Promise<AnimeThemes>}
  */
-export async function getThemes(Id: number): Promise<AnimeThemes> {
-  const urlString = `anime/${Id}/themes`;
-  return await malRequest(urlString);
+export async function getThemes (Id: number): Promise<AnimeThemes> {
+  const urlString = `anime/${Id}/themes`
+  return await malRequest(urlString)
 }
 
 /**
@@ -191,7 +191,7 @@ export async function getThemes(Id: number): Promise<AnimeThemes> {
  * @param {AnimeSearchQuery} searchQuery Query parameters
  * @return {Promise<AnimeSearch>}
  */
-export async function getAnimeSearch(searchQuery: AnimeSearchQuery): Promise<AnimeSearch> {
+export async function getAnimeSearch (searchQuery: AnimeSearchQuery): Promise<AnimeSearch> {
   const urlString = `anime?${searchQuery.q ? '&q=' + searchQuery.q : ''}${
     searchQuery.page ? '&page=' + searchQuery.page : ''
   }${searchQuery.limit ? '&limit=' + searchQuery.limit : ''}${searchQuery.type ? '&type=' + searchQuery.type : ''}${
@@ -202,7 +202,7 @@ export async function getAnimeSearch(searchQuery: AnimeSearchQuery): Promise<Ani
     searchQuery.genres ? '&genres=' + searchQuery.genres : ''
   }${searchQuery.letter ? '&letter=' + searchQuery.letter : ''}${
     searchQuery.producer ? '&producer=' + searchQuery.producer : ''
-  }${searchQuery.order_by ? '&order_by=' + searchQuery.order_by : ''}`;
+  }${searchQuery.order_by ? '&order_by=' + searchQuery.order_by : ''}`
 
-  return await malRequest(urlString);
+  return await malRequest(urlString)
 }

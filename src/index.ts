@@ -1,23 +1,40 @@
-import * as aniAnime from './anilist/anime';
-import * as aniCharacter from './anilist/chracter';
-import * as aniManga from './anilist/manga';
-import * as aniUser from './anilist/user';
+// Anilist
+import * as aniAnime from './anilist/anime'
+import * as aniCharacter from './anilist/chracter'
+import * as aniManga from './anilist/manga'
+import * as aniUser from './anilist/user'
+// My Anime List
+import * as malAnime from './mal/anime'
+import * as malCharacter from './mal/character'
+import * as malManga from './mal/manga'
+// Kitsu
+import * as kitAnime from './kitsu/anime'
+import * as kitManga from './kitsu/manga'
+import * as kitUser from './kitsu/user'
+import * as kitCharacter from './kitsu/character'
 
 const anilist = {
   anime: aniAnime,
   character: aniCharacter,
   manga: aniManga,
-  user: aniUser,
-};
-
-import * as malAnime from './mal/anime';
-import * as malCharacter from './mal/character';
-import * as malManag from './mal/manga';
+  user: aniUser
+}
 
 const mal = {
   anime: malAnime,
   character: malCharacter,
-  manga: malManag,
-};
+  manga: malManga
+}
 
-export default { anilist, mal };
+const kitsu = {
+  anime: kitAnime,
+  user: kitUser,
+  manga: kitManga,
+  character: kitCharacter
+}
+
+export default { anilist, mal, kitsu }
+
+module.exports = {
+  anilist, mal, kitsu
+}

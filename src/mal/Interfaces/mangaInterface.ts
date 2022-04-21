@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable camelcase */
+/* eslint-disable no-use-before-define */
 export interface MangaDataById {
   data: MangaData;
 }

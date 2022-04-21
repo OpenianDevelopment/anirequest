@@ -1,15 +1,15 @@
-import { anilistRequest } from './global';
-import {Character} from './Interfaces/characterInterface'
+import { anilistRequest } from './global'
+import { Character } from './Interfaces/characterInterface'
 /**
  * return chracter by name
  * @param {string} name chracter name
  * @returns chracter or null
  */
-export async function getByName(name: string): Promise<Character | null> {
+export async function getByName (name: string): Promise<Character | null> {
   const variables = {
     search: name,
-    sort: 'SEARCH_MATCH',
-  };
+    sort: 'SEARCH_MATCH'
+  }
   const query = `query ($id: Int, $search: String) {
         Character(id: $id, search: $search) {
             name {
@@ -58,10 +58,10 @@ export async function getByName(name: string): Promise<Character | null> {
                 }
             }
         }
-      }`;
-  const data = await anilistRequest(query, variables);
-  if (data === null) return null;
-  return data.Character as Promise<Character>;
+      }`
+  const data = await anilistRequest(query, variables)
+  if (data === null) return null
+  return data.Character as Promise<Character>
 }
 /**
  * return array of characters by name
@@ -71,16 +71,16 @@ export async function getByName(name: string): Promise<Character | null> {
  * @returns array of character
  */
 
-export async function getArraybyName(name: string, perPage: number, page?: number): Promise<Character[] | []> {
+export async function getArraybyName (name: string, perPage: number, page?: number): Promise<Character[] | []> {
   if (!page) {
-    page = 1;
+    page = 1
   }
   const variablesPage = {
     search: name,
     sort: 'SEARCH_MATCH',
     page,
-    perPage,
-  };
+    perPage
+  }
   const queryPage = `query ($id: Int, $page: Int, $perPage: Int, $search: String) {
             Page(page: $page, perPage: $perPage) {
               pageInfo {
@@ -138,11 +138,11 @@ export async function getArraybyName(name: string, perPage: number, page?: numbe
                   }
               }
             }
-          }`;
-  const results = await anilistRequest(queryPage, variablesPage);
-  if (results == null) return [];
-  if (results.Page.characters.length === 0) return [];
-  return results.Page.characters as Promise<Character[]>;
+          }`
+  const results = await anilistRequest(queryPage, variablesPage)
+  if (results == null) return []
+  if (results.Page.characters.length === 0) return []
+  return results.Page.characters as Promise<Character[]>
 }
 /**
  * return character by id
@@ -150,11 +150,11 @@ export async function getArraybyName(name: string, perPage: number, page?: numbe
  * @returns character or null
  */
 
-export async function getByID(id: number): Promise<Character | null> {
+export async function getByID (id: number): Promise<Character | null> {
   const variables = {
     id,
-    sort: 'SEARCH_MATCH',
-  };
+    sort: 'SEARCH_MATCH'
+  }
   const query = `query ($id: Int) {
         Character(id: $id) {
           name {
@@ -209,8 +209,8 @@ export async function getByID(id: number): Promise<Character | null> {
             }
           }
         }
-      }`;
-  const data = await anilistRequest(query, variables);
-  if (data == null) return null;
-  return data.Character as Promise<Character>;
+      }`
+  const data = await anilistRequest(query, variables)
+  if (data == null) return null
+  return data.Character as Promise<Character>
 }

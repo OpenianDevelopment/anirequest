@@ -1,4 +1,4 @@
-import { malRequest } from './global';
+import { malRequest } from './global'
 import {
   CharacterAnime,
   CharacterById,
@@ -6,16 +6,16 @@ import {
   CharacterPictures,
   CharacterSearch,
   CharacterSearchQuery,
-  CharacterVoiceActors,
-} from './Interfaces/characterInterface';
+  CharacterVoiceActors
+} from './Interfaces/characterInterface'
 /**
  * Get a character using its MyAnimeList ID
  * @param {number} Id MyAnimeList ID
  * @return {Promise<CharacterById>}
  */
-export async function getById(Id: number): Promise<CharacterById> {
-  const urlString = `characters/${Id}`;
-  return await malRequest(urlString);
+export async function getById (Id: number): Promise<CharacterById> {
+  const urlString = `characters/${Id}`
+  return await malRequest(urlString)
 }
 
 /**
@@ -23,9 +23,9 @@ export async function getById(Id: number): Promise<CharacterById> {
  * @param {number} Id MyAnimeList ID
  * @return {Promise<CharacterAnime>}
  */
-export async function getAnime(Id: number): Promise<CharacterAnime> {
-  const urlString = `characters/${Id}/anime`;
-  return await malRequest(urlString);
+export async function getAnime (Id: number): Promise<CharacterAnime> {
+  const urlString = `characters/${Id}/anime`
+  return await malRequest(urlString)
 }
 
 /**
@@ -33,9 +33,9 @@ export async function getAnime(Id: number): Promise<CharacterAnime> {
  * @param {number} Id MyAnimeList ID
  * @return {Promise<CharacterManga>}
  */
-export async function getManga(Id: number): Promise<CharacterManga> {
-  const urlString = `characters/${Id}/manga`;
-  return await malRequest(urlString);
+export async function getManga (Id: number): Promise<CharacterManga> {
+  const urlString = `characters/${Id}/manga`
+  return await malRequest(urlString)
 }
 
 /**
@@ -43,9 +43,9 @@ export async function getManga(Id: number): Promise<CharacterManga> {
  * @param {number} Id MyAnimeList ID
  * @return {Promise<CharacterVoiceActors>}
  */
-export async function getVoiceActors(Id: number): Promise<CharacterVoiceActors> {
-  const urlString = `characters/${Id}/voices`;
-  return await malRequest(urlString);
+export async function getVoiceActors (Id: number): Promise<CharacterVoiceActors> {
+  const urlString = `characters/${Id}/voices`
+  return await malRequest(urlString)
 }
 
 /**
@@ -53,9 +53,9 @@ export async function getVoiceActors(Id: number): Promise<CharacterVoiceActors> 
  * @param {number} Id MyAnimeList ID
  * @return {Promise<CharacterPictures>}
  */
-export async function getPictures(Id: number): Promise<CharacterPictures> {
-  const urlString = `characters/${Id}/pictures`;
-  return await malRequest(urlString);
+export async function getPictures (Id: number): Promise<CharacterPictures> {
+  const urlString = `characters/${Id}/pictures`
+  return await malRequest(urlString)
 }
 
 /**
@@ -63,7 +63,7 @@ export async function getPictures(Id: number): Promise<CharacterPictures> {
  * @param {CharacterSearchQuery} query Query parameters
  * @return {Promise<CharacterPictures>}
  */
-export async function getCharactersSearch(query: CharacterSearchQuery): Promise<CharacterSearch> {
+export async function getCharactersSearch (query: CharacterSearchQuery): Promise<CharacterSearch> {
   const urlString = `characters?
 ${query.page ? '&page=' + query.page : ''}
 ${query.limit ? '&limit=' + query.limit : ''}
@@ -71,6 +71,6 @@ ${query.q ? '&q=' + query.q : ''}
 ${query.order_by ? '&order_by=' + query.order_by : ''}
 ${query.sort ? '&sort=' + query.sort : ''}
 ${query.letter ? '&letter=' + query.letter : ''}
-`.replace(/\n/g, ''); // removing 'new lines'
-  return await malRequest(urlString);
+`.replace(/\n/g, '') // removing 'new lines'
+  return await malRequest(urlString)
 }

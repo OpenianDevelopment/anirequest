@@ -1,14 +1,14 @@
-import { anilistRequest } from './global';
-import {Manga} from './Interfaces/mangaInterface'
+import { anilistRequest } from './global'
+import { Manga } from './Interfaces/mangaInterface'
 /**
  * return manga by name
  * @param {string} name of manga
  * @returns manga or null
  */
-export async function getByName(name: string): Promise<Manga | null> {
+export async function getByName (name: string): Promise<Manga | null> {
   const variables = {
-    search: name,
-  };
+    search: name
+  }
   const query = `query ($id: Int, $search: String) {
         Media(id: $id, search: $search, type: MANGA) {
             id
@@ -50,10 +50,10 @@ export async function getByName(name: string): Promise<Manga | null> {
             countryOfOrigin
             source
         }
-      }`;
-  const results = await anilistRequest(query, variables);
-  if (results == null) return null;
-  return results.Media as Promise<Manga>;
+      }`
+  const results = await anilistRequest(query, variables)
+  if (results == null) return null
+  return results.Media as Promise<Manga>
 }
 /**
  * return manga by name
@@ -62,15 +62,15 @@ export async function getByName(name: string): Promise<Manga | null> {
  * @param {number} page select page to show (not required)
  * @returns manga or null
  */
-export async function getArrayByName(name: string, perPage: number, page?: number): Promise<Manga[] | []> {
+export async function getArrayByName (name: string, perPage: number, page?: number): Promise<Manga[] | []> {
   if (!page) {
-    page = 1;
+    page = 1
   }
   const variablesPage = {
     search: name,
     page,
-    perPage,
-  };
+    perPage
+  }
   const queryPage = `query ($id: Int, $page: Int, $perPage: Int, $search: String) {
             Page (page: $page, perPage: $perPage) {
               pageInfo {
@@ -121,21 +121,21 @@ export async function getArrayByName(name: string, perPage: number, page?: numbe
           source
               }
             }
-          }`;
-  const results = await anilistRequest(queryPage, variablesPage);
-  if (results == null) return [];
-  if (results.Page.media.length === 0) return [];
-  return results.Page.media as Promise<Manga[]>;
+          }`
+  const results = await anilistRequest(queryPage, variablesPage)
+  if (results == null) return []
+  if (results.Page.media.length === 0) return []
+  return results.Page.media as Promise<Manga[]>
 }
 /**
  * return manga by id
  * @param {number} id id of manga
  * @returns manga or null
  */
-export async function getByID(id: number): Promise<Manga | null> {
+export async function getByID (id: number): Promise<Manga | null> {
   const variables = {
-    id,
-  };
+    id
+  }
   const query = `query ($id: Int) {
         Media(id: $id, type: MANGA) {
           id
@@ -177,8 +177,8 @@ export async function getByID(id: number): Promise<Manga | null> {
           countryOfOrigin
           source
         }
-      }`;
-  const results = await anilistRequest(query, variables);
-  if (results == null) return null;
-  return results.Media as Promise<Manga>;
+      }`
+  const results = await anilistRequest(query, variables)
+  if (results == null) return null
+  return results.Media as Promise<Manga>
 }
