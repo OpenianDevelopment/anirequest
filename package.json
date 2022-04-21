@@ -1,6 +1,6 @@
 {
   "name": "@openian-development/anirequest",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Multiple anime tracker api interface",
   "scripts": {
     "build": "tsc",
